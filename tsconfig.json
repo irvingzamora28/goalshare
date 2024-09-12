@@ -1,0 +1,25 @@
+{
+    "extends": "@vue/tsconfig/tsconfig.json",
+    "compilerOptions": {
+      "target": "ESNext",             // Keep "target" as ESNext for modern JavaScript
+      "module": "ESNext",             // Set "module" to ESNext for Vite compatibility
+      "moduleResolution": "node",
+      "strict": true,
+      "jsx": "preserve",
+      "esModuleInterop": true,
+      "skipLibCheck": true,
+      "forceConsistentCasingInFileNames": true,
+      "noImplicitAny": false,
+      "types": ["vite/client"],       // Ensure Vite typings are included
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["resources/js/*"]
+      }
+    },
+    "include": [
+    "resources/**/*.ts",
+    "resources/**/*.d.ts",
+    "resources/**/*.vue"
+  ],
+    "exclude": ["node_modules"]
+  }

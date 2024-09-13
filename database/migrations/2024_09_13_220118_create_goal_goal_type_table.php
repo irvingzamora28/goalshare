@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('goal_types', function (Blueprint $table) {
+        Schema::create('goal_goal_type', function (Blueprint $table) {
             $table->id()->comment('Primary key, auto-increment');
-            $table->string('name')->comment('The name of the goal type (e.g. Education, Personal Development)');
+            $table->foreignId('goal_id')->constrained()->comment('Foreign key to the Goals table');
+            $table->foreignId('goal_type_id')->constrained()->comment('Foreign key to the Goal Types table');
             $table->timestamps();
         });
     }
-
 
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('goal_types');
+        Schema::dropIfExists('goal_goal_type');
     }
 };

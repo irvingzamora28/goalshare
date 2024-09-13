@@ -12,9 +12,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('goals', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('goal_type_id')->constrained()->comment('Foreign key to the goal_types table');
-            $table->string('title')->comment('The title of the goal');
+            $table->id()->comment('Primary key, auto-increment');
+            $table->string('title')->comment('The title of the predefined goal');
             $table->text('description')->comment('A brief description of the goal');
             $table->timestamps();
         });

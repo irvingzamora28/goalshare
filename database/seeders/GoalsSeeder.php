@@ -10,41 +10,32 @@ class GoalsSeeder extends Seeder
     public function run()
     {
         DB::table('goals')->insert([
-            [
-                'goal_type_id' => 1,
-                'title' => 'Learn a new language',
-                'description' => 'Become proficient in a new language within 6 months'
-            ],
-            [
-                'goal_type_id' => 2,
-                'title' => 'Run a marathon',
-                'description' => 'Train and complete a marathon in 12 months'
-            ],
-            [
-                'goal_type_id' => 3,
-                'title' => 'Get a promotion',
-                'description' => 'Work towards a promotion by improving skills and performance at work'
-            ],
-            [
-                'goal_type_id' => 4,
-                'title' => 'Complete an online course',
-                'description' => 'Finish an online course in a subject of interest within 3 months'
-            ],
-            [
-                'goal_type_id' => 5,
-                'title' => 'Learn to play guitar',
-                'description' => 'Take lessons and practice regularly to learn guitar'
-            ],
-            [
-                'goal_type_id' => 6,
-                'title' => 'Visit 5 countries',
-                'description' => 'Plan trips to visit 5 new countries'
-            ],
-            [
-                'goal_type_id' => 7,
-                'title' => 'Adopt a healthy diet',
-                'description' => 'Transition to a healthier diet over the next 3 months'
-            ],
+            ['title' => 'Learn a new language', 'description' => 'Learn a new language from scratch or improve proficiency'],
+            ['title' => 'Run a marathon', 'description' => 'Train and complete a full marathon'],
+            ['title' => 'Get a job promotion', 'description' => 'Work towards getting a promotion at your current job'],
+            ['title' => 'Visit 10 countries', 'description' => 'Travel to at least 10 different countries'],
+            ['title' => 'Start a new hobby', 'description' => 'Pick up a new hobby and practice it regularly'],
+        ]);
+
+        // Linking goals to their types using the pivot table goal_goal_type
+        DB::table('goal_goal_type')->insert([
+            // Learn a new language: Personal Development, Education
+            ['goal_id' => 1, 'goal_type_id' => 1], // Personal Development
+            ['goal_id' => 1, 'goal_type_id' => 4], // Education
+
+            // Run a marathon: Fitness, Health
+            ['goal_id' => 2, 'goal_type_id' => 2], // Fitness
+            ['goal_id' => 2, 'goal_type_id' => 7], // Health
+
+            // Get a job promotion: Career
+            ['goal_id' => 3, 'goal_type_id' => 3], // Career
+
+            // Visit 10 countries: Travel
+            ['goal_id' => 4, 'goal_type_id' => 6], // Travel
+
+            // Start a new hobby: Hobbies, Personal Development
+            ['goal_id' => 5, 'goal_type_id' => 5], // Hobbies
+            ['goal_id' => 5, 'goal_type_id' => 1], // Personal Development
         ]);
     }
 }

@@ -1,5 +1,11 @@
 <?php
 
+use App\Http\Controllers\CommunityController;
+use App\Http\Controllers\GoalController;
+use App\Http\Controllers\MessageBoardController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\UserGoalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

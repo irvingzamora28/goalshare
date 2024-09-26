@@ -1,6 +1,6 @@
 <script setup>
-import AppLayout from '@/Layouts/AppLayout.vue';
-import Welcome from '@/Components/Welcome.vue';
+import AppLayout from "@/Layouts/AppLayout.vue";
+import Welcome from "@/Components/Welcome.vue";
 </script>
 
 <template>
@@ -9,6 +9,14 @@ import Welcome from '@/Components/Welcome.vue';
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Dashboard
             </h2>
+            <div v-if="user.subscription_status === 'premium'">
+                <!-- Premium Features -->
+                 <h1>Usuario premium</h1>
+            </div>
+            <div v-else>
+                <!-- Free User Features -->
+                 <h1>Usuario normal</h1>
+            </div>
         </template>
 
         <div class="py-12">
@@ -20,3 +28,11 @@ import Welcome from '@/Components/Welcome.vue';
         </div>
     </AppLayout>
 </template>
+
+<script>
+export default {
+    props: {
+        user: Object,
+    },
+};
+</script>

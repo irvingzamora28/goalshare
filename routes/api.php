@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\GoalController;
 use App\Http\Controllers\MessageBoardController;
@@ -8,6 +9,9 @@ use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\UserGoalController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
+
+Route::post('/generate-token', [AuthController::class, 'generateToken']);
 
 Route::get('/user', function (Request $request) {
     return $request->user();

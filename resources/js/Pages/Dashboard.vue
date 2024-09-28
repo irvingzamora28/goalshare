@@ -52,7 +52,7 @@ const navigate = (navItem) => {
         <nav
             class="fixed inset-x-0 bottom-0 bg-white border-t border-gray-200 sm:hidden"
         >
-            <div class="max-w-lg mx-auto grid grid-cols-4 gap-6 px-4 py-3">
+            <div class="max-w-lg mx-auto grid grid-cols-3 gap-6 px-4 py-3">
                 <!-- Home -->
                 <button
                     @click="navigate('home')"
@@ -149,37 +149,6 @@ const navigate = (navItem) => {
                     >
                 </button>
 
-                <!-- Profile -->
-                <button
-                    @click="navigate('profile')"
-                    class="flex flex-col items-center text-sm"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        class="h-6 w-6"
-                        :class="{
-                            'text-indigo-600': activeNav === 'profile',
-                            'text-gray-500': activeNav !== 'profile',
-                        }"
-                    >
-                        <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M12 14c4 0 7 2 7 5v1H5v-1c0-3 3-5 7-5zm0-4a4 4 0 110-8 4 4 0 010 8z"
-                        />
-                    </svg>
-                    <span
-                        :class="{
-                            'text-indigo-600': activeNav === 'profile',
-                            'text-gray-500': activeNav !== 'profile',
-                        }"
-                        >Profile</span
-                    >
-                </button>
             </div>
         </nav>
     </AppLayout>

@@ -15,6 +15,12 @@ const activeNav = ref("home");
 const navigate = (navItem) => {
     activeNav.value = navItem;
 };
+
+// Handle create goal button click
+const createGoal = () => {
+    // Logic to open create goal modal or navigate to the create goal page
+    console.log("Create a Goal button clicked");
+};
 </script>
 
 <template>
@@ -25,28 +31,31 @@ const navigate = (navItem) => {
             </h2>
         </template>
 
-        <div class="py-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Two-column layout for larger screens -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <!-- Goals Section - Always visible on desktop (lg:block), conditionally visible on mobile -->
-                    <div
-                        :class="{ hidden: activeNav !== 'home' }"
-                        class="block lg:block"
-                    >
+                <!-- Flex layout for equal height alignment -->
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Goals Section -->
+                    <div class="lg:w-1/2 flex flex-col p-8">
                         <GoalsSection />
                     </div>
 
-                    <!-- Community Feed - Always visible on desktop (lg:block), conditionally visible on mobile -->
-                    <div
-                        :class="{ hidden: activeNav !== 'community' }"
-                        class="block lg:block"
-                    >
+                    <!-- Community Feed Section -->
+                    <div class="lg:w-1/2 flex flex-col p-6">
+                        <!-- Create a Goal Button -->
+                        <div class="flex justify-end mb-4">
+                            <button
+                                @click="createGoal"
+                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+                            >
+                                Create a Goal
+                            </button>
+                        </div>
+
+                        <!-- Community Feed -->
                         <CommunityFeed />
                     </div>
                 </div>
             </div>
-        </div>
 
         <!-- Bottom Navigation for mobile users -->
         <nav

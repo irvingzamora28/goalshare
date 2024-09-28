@@ -25,37 +25,31 @@ const createGoal = () => {
 
 <template>
     <AppLayout title="Dashboard">
-        <template #header>
-            <h2 class="font-semibold text-2xl text-gray-800 leading-tight">
-                Welcome back, {{ user.name }}!
-            </h2>
-        </template>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Flex layout for equal height alignment -->
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Goals Section -->
+                <div class="lg:w-1/2 flex flex-col p-8">
+                    <GoalsSection />
+                </div>
 
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <!-- Flex layout for equal height alignment -->
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <!-- Goals Section -->
-                    <div class="lg:w-1/2 flex flex-col p-8">
-                        <GoalsSection />
+                <!-- Community Feed Section -->
+                <div class="lg:w-1/2 flex flex-col p-6">
+                    <!-- Create a Goal Button -->
+                    <div class="flex justify-end mb-4">
+                        <button
+                            @click="createGoal"
+                            class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+                        >
+                            Create a Goal
+                        </button>
                     </div>
 
-                    <!-- Community Feed Section -->
-                    <div class="lg:w-1/2 flex flex-col p-6">
-                        <!-- Create a Goal Button -->
-                        <div class="flex justify-end mb-4">
-                            <button
-                                @click="createGoal"
-                                class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
-                            >
-                                Create a Goal
-                            </button>
-                        </div>
-
-                        <!-- Community Feed -->
-                        <CommunityFeed />
-                    </div>
+                    <!-- Community Feed -->
+                    <CommunityFeed />
                 </div>
             </div>
+        </div>
 
         <!-- Bottom Navigation for mobile users -->
         <nav
@@ -157,7 +151,6 @@ const createGoal = () => {
                         >Community</span
                     >
                 </button>
-
             </div>
         </nav>
     </AppLayout>

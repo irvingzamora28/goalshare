@@ -11,6 +11,10 @@ import NotificationDropdown from "@/Components/NotificationDropdown.vue";
 
 const showingNavigationDropdown = ref(false);
 
+defineProps({
+    title: String,
+});
+
 const logout = () => {
     router.post(route("logout"));
 };
